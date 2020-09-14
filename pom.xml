@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.atguigu.maven</groupId>
+    <artifactId>pro05-atguigu-maven-parent</artifactId>
+    <!-- 父工程的打包方式必须是pom -->
+    <!-- 打包方式为pom的工程不做实际业务功能的开发，它存在的意义就是管理其他工程 -->
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+
+    <!-- 聚合的配置 -->
+    <modules>
+        <module>pro06-atguigu-maven-module01</module>
+        <module>pro06-atguigu-maven-module02</module>
+        <module>pro06-atguigu-maven-module03</module>
+        <module>pro07-atguigu-jedis</module>
+    </modules>
+
+    <!-- 通过配置自定义属性，统一管理依赖的版本信息 -->
+    <properties>
+        <!-- 创建自定义标签，设置属性值 -->
+        <!-- 使用${标签名}方式引用 -->
+        <atguigu.spring.version>5.1.8.RELEASE</atguigu.spring.version>
+    </properties>
+
+    <!-- 在父工程统一管理依赖信息 -->
+    <!-- 父工程中配置的dependencyManagement并不能代替子工程中的dependencies -->
+    <!-- dependencyManagement仅仅只是依赖的管理不会有实际的引入 -->
+    <dependencyManagement>
+        <!-- dependencies放在dependencyManagement中就不起作用了 -->
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-core</artifactId>
+                <version>${atguigu.spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-aop</artifactId>
+                <version>${atguigu.spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-orm</artifactId>
+                <version>${atguigu.spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-jdbc</artifactId>
+                <version>${atguigu.spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-webmvc</artifactId>
+                <version>${atguigu.spring.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+</project>

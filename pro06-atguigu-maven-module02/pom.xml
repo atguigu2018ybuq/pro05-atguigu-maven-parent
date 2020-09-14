@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>pro05-atguigu-maven-parent</artifactId>
+        <groupId>com.atguigu.maven</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>pro06-atguigu-maven-module02</artifactId>
+
+    <!-- 在子工程中依赖spring -->
+    <!-- 父工程中配置的dependencyManagement并不能代替子工程中的dependencies -->
+    <!-- dependencyManagement仅仅只是依赖的管理不会有实际的引入 -->
+    <!-- dependencies是真的会把依赖信息引入到工程中 -->
+    <dependencies>
+        <dependency>
+            <groupId>com.atguigu.maven</groupId>
+            <artifactId>pro06-atguigu-maven-module03</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <!-- 子工程需要把version部分删除，否则，version部分如果保留的话，父工程中统一管理的版本无效 -->
+            <!-- 通俗来说就是：要想让父工程统一管理依赖的版本，那么子工程就别写 -->
+            <!--            <version>4.3.13.RELEASE</version>-->
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aop</artifactId>
+            <!--            <version>4.3.13.RELEASE</version>-->
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-orm</artifactId>
+            <!--            <version>4.3.13.RELEASE</version>-->
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <!--            <version>4.3.13.RELEASE</version>-->
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <!--            <version>4.3.13.RELEASE</version>-->
+        </dependency>
+    </dependencies>
+
+
+</project>
